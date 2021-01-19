@@ -23,7 +23,7 @@ export default {
   },
   created() {
     axios.get("http://localhost:3000/api/v1/landlords")
-      .then(res => this.landlords = res.data)
+      .then(res => this.landlords = res.data.data)
       .catch(err => console.warn(err))
   }
 }

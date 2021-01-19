@@ -39,3 +39,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  tr:nth-child(odd) {
+    background: #ccc
+  }
+  .table-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+  }
+</style>

@@ -1,6 +1,7 @@
 <template>
   <div class="landlord">
     <h2>{{ name }}</h2>
+    <router-link v-bind:to="`${this.$route.path}/${landlord.id}`">interpolated link</router-link>
     <p v-if="rating">Rating: {{ rating }}</p>
     <p>Number of Properties: {{ numProperties }}</p>
     <ul>

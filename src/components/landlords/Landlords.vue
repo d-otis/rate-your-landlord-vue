@@ -22,12 +22,10 @@
 
 <script>
 import axios from 'axios'
-import Landlord from './Landlord'
 
 export default {
   name: "Landlords",
   components: {
-    Landlord
   },
   data() {
     return {

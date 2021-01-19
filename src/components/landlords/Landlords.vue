@@ -14,7 +14,7 @@
         <td>{{ landlord.attributes.name }}</td>
         <td>{{ landlord.attributes.rating.toFixed(2) }}</td>
         <td>{{ landlord.relationships.properties.data.length }}</td>
-        <td><router-link v-bind:to="`${$route.path}/${landlord.id}`">view</router-link></td>
+        <td><router-link v-bind:to="{ name: 'landlord', params: {landlordId: landlord.id} }">view</router-link></td>
       </tr>
     </table>
   </div>

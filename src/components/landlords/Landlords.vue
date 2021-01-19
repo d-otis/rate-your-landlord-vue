@@ -1,9 +1,22 @@
 <template>
-  <div>
-  <h1>Landlords Index</h1>
-  <div v-for="landlord in landlords" v-bind:key="landlord.id">
-    <Landlord v-bind:landlord="landlord" />  
-  </div>  
+  <div class="table-container">
+    <h1>Landlords Index</h1> 
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Rating</th>
+          <th>Properties</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tr v-for="landlord in landlords" :key="landlord.id">
+        <td>{{ landlord.attributes.name }}</td>
+        <td>{{ landlord.attributes.rating.toFixed(2) }}</td>
+        <td>{{ landlord.relationships.properties.data.length }}</td>
+        <td><router-link v-bind:to="`${$route.path}/${landlord.id}`">view</router-link></td>
+      </tr>
+    </table>
   </div>
 </template>
 

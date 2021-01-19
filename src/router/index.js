@@ -27,7 +27,7 @@ const routes = [
   },
   {
     path: "/landlords/:landlordId",
-    // name: "landlord",
+    name: "landlord",
     component: Landlord,
     
   }

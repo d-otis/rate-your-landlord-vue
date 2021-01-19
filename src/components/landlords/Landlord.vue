@@ -1,6 +1,6 @@
 <template>
   <div class="landlord">
-    <h2>{{ landlord.attributes.name }}</h2>
+    <h2>{{ name }}</h2>
     <ul>
       <li>Number of Properties: {{ numProperties }}</li>
       <li>Rating: {{ rating }}</li>
@@ -19,6 +19,9 @@ export default {
     },
     numProperties() {
       return this.landlord.relationships.properties.data.length
+    },
+    name() {
+      return this.landlord.attributes.name
     }
   }
 }

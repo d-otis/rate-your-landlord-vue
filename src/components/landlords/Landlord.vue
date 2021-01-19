@@ -1,6 +1,8 @@
 <template>
   <div class="landlord">
     <h2>{{ name }}</h2>
+    <p v-if="rating">Rating: {{ rating }}</p>
+    <p>Number of Properties: {{ numProperties }}</p>
     <ul>
       <li>Number of Properties: {{ numProperties }}</li>
       <li>Rating: {{ rating }}</li>

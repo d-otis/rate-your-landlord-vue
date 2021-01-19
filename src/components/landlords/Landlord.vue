@@ -4,8 +4,7 @@
     <p v-if="rating">Rating: {{ rating }}</p>
     <p>Number of Properties: {{ numProperties }}</p>
     <ul>
-      <li>Number of Properties: {{ numProperties }}</li>
-      <li>Rating: {{ rating }}</li>
+      <li v-bind:key="property.id" v-for="property in propertiesArray">{{ property.id }}</li>
     </ul>
     <hr>
   </div>
@@ -24,6 +23,9 @@ export default {
     },
     name() {
       return this.landlord.attributes.name
+    },
+    propertiesArray() {
+      return this.landlord.relationships.properties.data
     }
   }
 }

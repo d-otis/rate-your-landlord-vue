@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Landlords from '../components/landlords/Landlords'
+import Landlord from '../components/landlords/Landlord'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,12 @@ const routes = [
     path: "/landlords",
     name: "Landlords",
     component: Landlords
+  },
+  {
+    path: "/landlords/:landlordId",
+    // name: "landlord",
+    component: Landlord,
+    
   }
 ]
 

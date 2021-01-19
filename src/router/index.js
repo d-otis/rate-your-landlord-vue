@@ -29,7 +29,7 @@ const routes = [
     path: "/landlords/:landlordId",
     name: "landlord",
     component: Landlord,
-    
+    props: route => ({ landlordId: route.params.landlordId })
   }
 ]
 

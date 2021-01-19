@@ -5,7 +5,7 @@
 </template>
 
 <script>
-
+import axios from 'axios'
 
 export default {
   name: "Landlords",
@@ -15,7 +15,9 @@ export default {
     }
   },
   created() {
-    this.landlords = ["a landlord"]
+    axios.get("http://localhost:3000/api/v1/landlords")
+      .then(res => this.landlords = res.data)
+      .catch(err => console.warn(err))
   }
 }
 </script>

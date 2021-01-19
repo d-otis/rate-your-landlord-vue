@@ -29,7 +29,7 @@ export default {
   },
   data() {
     return {
-      landlords: []
+      landlords: this.$root.$data.landlords
     }
   },
   created() {

@@ -21,16 +21,15 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "Landlords",
   components: {
   },
-  data() {
-    return {
-      landlords: this.$root.$data.state.landlords
-    }
+  computed: mapGetters(['allLandlords']),
+  methods: {
+    ...mapActions(["fetchLandlords"])
   },
   created() {
     axios.get("http://localhost:3000/api/v1/landlords")

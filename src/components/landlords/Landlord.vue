@@ -14,7 +14,7 @@
 <script>
 export default {
   name: "Landlord",
-  props: ["landlord"],
+  props: ["landlordId"],
   computed: {
     rating() {
       return this.landlord.attributes.rating.toFixed(2)

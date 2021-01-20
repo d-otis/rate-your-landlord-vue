@@ -32,9 +32,7 @@ export default {
     ...mapActions(["fetchLandlords"])
   },
   created() {
-    axios.get("http://localhost:3000/api/v1/landlords")
-      .then(res => this.$root.$data.state.landlords = res.data.data)
-      .catch(err => console.warn(err))
+    this.fetchLandlords()
   }
 }
 </script>

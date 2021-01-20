@@ -10,10 +10,10 @@
           <th>Link</th>
         </tr>
       </thead>
-      <tr v-for="landlord in landlords" :key="landlord.id">
-        <td>{{ landlord.attributes.name }}</td>
-        <td>{{ landlord.attributes.rating.toFixed(2) }}</td>
-        <td>{{ landlord.relationships.properties.data.length }}</td>
+      <tr v-for="landlord in allLandlords" :key="landlord.id">
+        <td>{{ landlord.name }}</td>
+        <td>{{ landlord.rating.toFixed(2) }}</td>
+        <td>{{ landlord.properties.length }}</td>
         <td><router-link v-bind:to="{ name: 'landlord', params: {landlordId: landlord.id} }">view</router-link></td>
       </tr>
     </table>

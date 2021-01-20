@@ -29,12 +29,12 @@ export default {
   },
   data() {
     return {
-      landlords: this.$root.$data.landlords
+      landlords: this.$root.$data.state.landlords
     }
   },
   created() {
     axios.get("http://localhost:3000/api/v1/landlords")
-      .then(res => this.$root.$data.landlords = res.data.data)
+      .then(res => this.$root.$data.state.landlords = res.data.data)
       .catch(err => console.warn(err))
   }
 }

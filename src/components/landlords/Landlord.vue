@@ -16,8 +16,8 @@ export default {
   name: "Landlord",
   props: ["landlordId"],
   computed: {
-    rating() {
-      return this.landlord.attributes.rating.toFixed(2)
+    landlord() {
+      return this.$root.$data.state.landlords.find(ll => ll.id === this.landlordId )
     },
     numProperties() {
       return this.landlord.relationships.properties.data.length

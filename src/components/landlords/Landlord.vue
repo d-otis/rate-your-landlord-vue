@@ -1,13 +1,8 @@
 <template>
   <div class="landlord">
-    <h2>{{ name }}</h2>
-    <router-link v-bind:to="`${this.$route.path}/${landlord.id}`">interpolated link</router-link>
-    <p v-if="rating">Rating: {{ rating }}</p>
-    <p>Number of Properties: {{ numProperties }}</p>
-    <ul>
-      <li v-bind:key="property.id" v-for="property in propertiesArray">{{ property.id }}</li>
-    </ul>
-    <hr>
+    <button @click="$router.go(-1)">Go Back</button>
+    <h2>Landlord Show</h2>
+    <p>{{ landlord.attributes.name }}</p>
   </div>
 </template>
 

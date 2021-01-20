@@ -19,7 +19,6 @@ const actions = {
 const mutations = {
   setLandlords: (state, landlords) => {
     state.landlords = [
-      ...state.landlords,
       ...landlords.map(landlord => {
         return {
           id: landlord.id,

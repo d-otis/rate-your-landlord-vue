@@ -5,7 +5,8 @@ const state = {
 }
 
 const getters = {
-  allLandlords: state => state.landlords
+  allLandlords: state => state.landlords,
+  getLandlordById: state => id => state.landlords.find(landlord => landlord.id === id)
 }
 
 const actions = {

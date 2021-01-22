@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">
     <button @click="$router.go(-1)">Go Back</button>
+    <button @click="toggle">Add a Landlord</button>
+    <hr v-show="addVisible">
     <div class="container">
         <div class="landlord-img">
           <img :src="landlord.image" class="landlord-img"> 
@@ -31,11 +33,21 @@ import { mapGetters } from 'vuex'
 export default {
   name: "Landlord",
   props: ["landlordId"],
+  data() {
+    return {
+      addVisible: false
+    }
+  },
   computed: {
     ...mapGetters(['getLandlordById']),
     landlord() {
       const id = this.$route.params.landlordId
       return this.getLandlordById(id)
+    }
+  },
+  methods: {
+    toggle() {
+      this.addVisible = !this.addVisible
     }
   }
 }

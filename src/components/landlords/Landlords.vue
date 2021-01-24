@@ -1,6 +1,8 @@
 <template>
   <div class="table-container">
-    <AddLandlord />
+    <AddLandlord v-show="addLandlordShow" />
+     <button @click="toggle" v-show="!addLandlordShow">Add a Landlord</button>
+     <button @click="toggle" v-show="addLandlordShow">Cancel</button>
     <h1>Landlords Index</h1> 
     <table>
       <thead>
@@ -27,12 +29,20 @@ import AddLandlord from './addLandlord'
 
 export default {
   name: "Landlords",
+  data() {
+    return {
+      addLandlordShow: false
+    }
+  },
   components: {
     AddLandlord
   },
   computed: mapGetters(['allLandlords']),
   methods: {
-    ...mapActions(["fetchLandlords"])
+    ...mapActions(["fetchLandlords"]),
+    toggle() {
+      this.addLandlordShow = !this.addLandlordShow
+    }
   },
   created() {
     this.fetchLandlords()

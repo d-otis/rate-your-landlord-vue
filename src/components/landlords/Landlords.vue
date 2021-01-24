@@ -1,5 +1,6 @@
 <template>
   <div class="table-container">
+    <AddLandlord />
     <h1>Landlords Index</h1> 
     <table>
       <thead>
@@ -22,10 +23,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import AddLandlord from './addLandlord'
 
 export default {
   name: "Landlords",
   components: {
+    AddLandlord
   },
   computed: mapGetters(['allLandlords']),
   methods: {

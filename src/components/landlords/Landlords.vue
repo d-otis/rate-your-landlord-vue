@@ -25,7 +25,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import AddLandlord from './addLandlord'
+import AddLandlord from './AddLandlord'
 
 export default {
   name: "Landlords",

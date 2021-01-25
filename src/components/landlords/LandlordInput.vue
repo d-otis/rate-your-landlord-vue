@@ -24,7 +24,9 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
       this.addLandlord(this.name)
-    }
+    },
+    ...mapActions(["addLandlord"])
   }
+  // methods: mapActions(["addLandlord"])
 }
 </script>

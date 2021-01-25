@@ -38,7 +38,19 @@ const mutations = {
       })
     ]
   },
-  newLandlord: (state, landlord) => state.landlords.push(landlord),
+  newLandlord: (state, landlord) => {
+    state.landlords = [
+      ...state.landlords,
+      {
+        id: landlord.id,
+        name: landlord.attributes.name,
+        rating: formatRating(landlord.attributes.rating),
+        image: landlord.attributes.image_url,
+        properties: landlord.relationships.properties.data.map(property => property.id),
+        reviews: landlord.relationships.reviews.data.map(review => review)
+      }
+    ]
+  },
 }
 
 export default {

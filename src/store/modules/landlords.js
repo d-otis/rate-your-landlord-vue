@@ -36,7 +36,8 @@ const mutations = {
         }
       })
     ]
-  }
+  },
+  newLandlord: (state, landlord) => state.landlords.push(landlord),
 }
 
 export default {

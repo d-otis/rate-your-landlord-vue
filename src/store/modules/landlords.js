@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { formatRating } from '../../util'
 
 const state = {
   landlords: []
@@ -29,7 +30,7 @@ const mutations = {
         return {
           id: landlord.id,
           name: landlord.attributes.name,
-          rating: landlord.attributes.rating,
+          rating: formatRating(landlord.attributes.rating),
           image: landlord.attributes.image_url,
           properties: landlord.relationships.properties.data.map(property => property.id),
           reviews: landlord.relationships.reviews.data.map(review => review)

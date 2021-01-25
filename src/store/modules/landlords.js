@@ -19,7 +19,7 @@ const actions = {
   async addLandlord({ commit }, landlord) {
     const response = await axios.post("http://localhost:3000/api/v1/landlords/", { name: landlord })
     
-    commit("newLandlord", response.data)
+    commit("newLandlord", response.data.data)
   }
 }
 

@@ -21,12 +21,8 @@ export default {
     }
   },
   methods: {
-    // ...mapActions(['addLandlord']),
-    handleSubmit(event) {
-      event.preventDefault();
-      // eslint-disable-next-line
-      // debugger
-      console.log('submitted')
+    handleSubmit(e) {
+      e.preventDefault();
       this.addLandlord(this.name)
     }
   }

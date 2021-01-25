@@ -18,7 +18,7 @@
     <div class="container">
       <div class="name-rating-col">
         <h1>{{ landlord.name }}</h1>
-        <h2>Rating: {{ landlord.rating.toFixed(2) }}</h2>
+        <h2>Rating: {{ landlord.rating }}</h2>
       </div>
       <div class="edit-col">
         <button>Edit Landlord</button>

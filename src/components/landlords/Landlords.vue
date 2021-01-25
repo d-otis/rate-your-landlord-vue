@@ -1,6 +1,6 @@
 <template>
   <div class="table-container">
-    <AddLandlord v-show="addLandlordShow" />
+    <LandlordInput v-show="addLandlordShow" />
      <button @click="toggle" v-show="!addLandlordShow">Add a Landlord</button>
      <button @click="toggle" v-show="addLandlordShow">Cancel</button>
     <h1>Landlords Index</h1> 
@@ -25,7 +25,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import LandlordInput from './AddLandlord'
+import LandlordInput from './LandlordInput'
 
 export default {
   name: "Landlords",

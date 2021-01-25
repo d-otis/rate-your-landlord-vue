@@ -25,7 +25,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import AddLandlord from './AddLandlord'
+import LandlordInput from './AddLandlord'
 
 export default {
   name: "Landlords",
@@ -35,7 +35,7 @@ export default {
     }
   },
   components: {
-    AddLandlord
+    LandlordInput
   },
   computed: mapGetters(['allLandlords']),
   methods: {

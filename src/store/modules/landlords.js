@@ -18,8 +18,13 @@ const actions = {
   },
   async addLandlord({ commit }, landlord) {
     const response = await axios.post("http://localhost:3000/api/v1/landlords/", { name: landlord })
-    
+     
     commit("newLandlord", response.data.data)
+  },
+  async updateLandlord({ commit }, landlord) {
+    const response = await axios.patch(`http://localhost:3000/api/v1/landlords/${landlord.id}`, { name: landlord.name })
+
+    commit("updateLandlord", response.data.data)
   }
 }
 

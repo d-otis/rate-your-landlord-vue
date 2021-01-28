@@ -51,7 +51,7 @@ export default {
     handleEdit(e) {
       e.preventDefault();
       this.updateLandlord(this.landlord)
-      console.log(`you edited ${this.landlord.name}`)
+      this.toggleEdit()
     },
   }
 }

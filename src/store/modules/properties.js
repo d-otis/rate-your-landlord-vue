@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { normalizeProperty } from '../../util'
 
 const state = {
   properties: []
@@ -12,14 +13,13 @@ const getters = {
 const actions = {
   async fetchProperties({ commit }) {
     const response = await axios.get("http://localhost:3000/api/v1/properties/")
-
     commit("setProperties", response.data.data)
   }
 }
 
 const mutations = {
   setProperties: (state, properties) => {
-    state.properties = properties
+    state.properties = properties.map(property => normalizeProperty(property))
   }
 }
 

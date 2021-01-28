@@ -14,8 +14,6 @@ export function normalizeLandlord(landlord) {
 }
 
 export function normalizeProperty(property) {
-  // eslint-disable-next-line
-  // debugger
   return {
     id: property.id,
     address: property.attributes.address,

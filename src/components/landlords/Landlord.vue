@@ -25,7 +25,8 @@ export default {
   props: ["landlordId"],
   data() {
     return {
-      addVisible: false
+      addVisible: false,
+      showEdit: false,
     }
   },
   computed: {

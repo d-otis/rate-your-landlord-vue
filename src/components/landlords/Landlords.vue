@@ -3,7 +3,7 @@
     <LandlordInput v-show="addLandlordShow" v-on:toggle-input-vis="toggle" />
      <button @click="toggle" v-show="!addLandlordShow">Add a Landlord</button>
      <button @click="toggle" v-show="addLandlordShow">Cancel</button>
-    <h1>Landlords Index</h1> 
+    <h1> <span v-show="!allLandlords.length">Loading: </span> Landlords Index</h1> 
     <table>
       <thead>
         <tr>

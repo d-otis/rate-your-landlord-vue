@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { formatRating } from '../../util'
+import { formatRating, normalizeLandlord } from '../../util'
 
 const state = {
   landlords: []
@@ -30,18 +30,7 @@ const actions = {
 
 const mutations = {
   setLandlords: (state, landlords) => {
-    state.landlords = [
-      ...landlords.map(landlord => {
-        return {
-          id: landlord.id,
-          name: landlord.attributes.name,
-          rating: formatRating(landlord.attributes.rating),
-          image: landlord.attributes.image_url,
-          properties: landlord.relationships.properties.data.map(property => property.id),
-          reviews: landlord.relationships.reviews.data.map(review => review)
-        }
-      })
-    ]
+    state.landlords = landlords.map(landlord => normalizeLandlord(landlord))
   },
   newLandlord: (state, landlord) => {
     state.landlords = [

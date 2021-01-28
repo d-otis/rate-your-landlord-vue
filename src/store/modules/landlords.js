@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { formatRating, normalizeLandlord } from '../../util'
+import { normalizeLandlord } from '../../util'
 
 const state = {
   landlords: []

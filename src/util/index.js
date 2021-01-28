@@ -12,3 +12,17 @@ export function normalizeLandlord(landlord) {
     reviews: landlord.relationships.reviews.data.map(review => review)
   }
 }
+
+export function normalizeProperty(property) {
+  // eslint-disable-next-line
+  // debugger
+  return {
+    id: property.id,
+    address: property.attributes.address,
+    hasImage: property.attributes.has_image,
+    image: property.attributes.image_url,
+    landlordId: property.attributes.landlord_id,
+    reviews: property.relationships.reviews.data.map(review => review.id),
+    rating: formatRating(property.attributes.rating)
+  }
+}

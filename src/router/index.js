@@ -1,9 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Landlords from '../components/landlords/Landlords'
-import Landlord from '../components/landlords/Landlord'
-import Properties from '../components/properties/Properties'
+import landlordsRoutes from './landlordsRoutes'
+import propertiesRoutes from './propertiesRoutes'
 
 Vue.use(VueRouter)
 
@@ -21,23 +20,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
-  {
-    path: "/landlords",
-    name: "Landlords",
-    component: Landlords
-  },
-  {
-    path: "/landlords/:landlordId",
-    name: "landlord",
-    component: Landlord,
-    props: route => ({ landlordId: route.params.landlordId })
-  },
-
-  {
-    path: "/properties",
-    name: "Properties",
-    component: Properties
-  }
+  ...landlordsRoutes,
+  ...propertiesRoutes
 ]
 
 const router = new VueRouter({

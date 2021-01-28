@@ -31,6 +31,13 @@ export default {
   },
   computed: {
     ...mapGetters(['getLandlordById']),
+    // another option to pull in the Landlord instance below...
+    // make sure to import mapState from vuex
+    // ...mapState({
+    //   landlord: function(state) {
+    //     return state.landlords.landlords.find(landlord => landlord.id === this.landlordId)
+    //   }
+    // }),
     landlord() {
       const id = this.$route.params.landlordId
       return this.getLandlordById(id)

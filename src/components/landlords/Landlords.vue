@@ -10,7 +10,7 @@
           <th>Name</th>
           <th>Rating</th>
           <th>Properties</th>
-          <th>Link</th>
+          <th>View</th>
         </tr>
       </thead>
       <tr v-for="landlord in allLandlords" :key="landlord.id">

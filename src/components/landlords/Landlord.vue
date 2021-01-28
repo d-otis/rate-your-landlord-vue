@@ -30,9 +30,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getLandlordById']),
-    // another option to pull in the Landlord instance below...
-    // make sure to import mapState from vuex
+    ...mapGetters(['getLandlordById', 'allProperties', "getPropertiesByIds"]),
+    // * another option to pull in the Landlord instance below...
+    // * make sure to import mapState from vuex
+    // !! leave as example
     // ...mapState({
     //   landlord: function(state) {
     //     return state.landlords.landlords.find(landlord => landlord.id === this.landlordId)
@@ -43,7 +44,11 @@ export default {
       return this.getLandlordById(id)
     },
     properties() {
-      return this.allProperties.filter(property => property.landlordId === this.landlord.id)
+      // * below works--
+      // !! leave as example
+      // return this.allProperties.filter(property => property.landlordId === this.landlord.id)
+
+      return this.getPropertiesByIds(this.landlord.properties)
     }
   },
   methods: {

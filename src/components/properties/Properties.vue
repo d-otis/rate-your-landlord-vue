@@ -14,8 +14,13 @@
       </thead>
       <tr v-for="property in allProperties" :key="property.id">
         <td>{{ property.address }}</td>
-        <td>{{ property.landlordId }}</td>
-        <td>[ landlord rating here ]</td>
+        <td>
+          <router-link 
+            v-bind:to="{ name: 'landlord', params: { landlordId: generateLandlord(property.landlordId).id } }">
+            {{ generateLandlord(property.landlordId).name }}
+          </router-link>
+        </td>
+        <td>{{ generateLandlord(property.landlordId).rating }}</td>
         <td>{{ property.rating }}</td>
         <td>{{ property.reviews.length }}</td>
         <td><router-link v-bind:to="`properties/${property.id}`" >View</router-link></td>

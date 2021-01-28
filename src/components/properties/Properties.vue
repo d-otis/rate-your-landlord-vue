@@ -5,8 +5,19 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
-  name: "Properties"
+  name: "Properties",
+  created() {
+    this.fetchProperties()
+  },
+  computed: {
+    ...mapGetters(["allProperties"])
+  },
+  methods: {
+    ...mapActions(["fetchProperties"])
+  }
 }
 </script>
 

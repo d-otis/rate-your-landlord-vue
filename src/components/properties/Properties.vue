@@ -1,6 +1,26 @@
 <template>
-  <div>
+  <div class="table-container">
     <h1>Properties Index</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Address</th>
+          <th>Landlord</th>
+          <th>Landlord Rating</th>
+          <th>Property Rating</th>
+          <th># of Reviews</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tr v-for="property in allProperties" :key="property.id">
+        <td>{{ property.address }}</td>
+        <td>{{ property.landlordId }}</td>
+        <td>[ landlord rating here ]</td>
+        <td>{{ property.rating }}</td>
+        <td>{{ property.reviews.length }}</td>
+        <td><router-link v-bind:to="`properties/${property.id}`" >View</router-link></td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -22,5 +42,12 @@ export default {
 </script>
 
 <style scoped>
+  tr:nth-child(odd) {
+    background: #ccc
+  }
 
+  .table-container {
+    display: flex;
+    flex-direction: column;
+  }
 </style>

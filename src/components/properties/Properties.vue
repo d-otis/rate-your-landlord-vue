@@ -33,10 +33,13 @@ export default {
     this.fetchProperties()
   },
   computed: {
-    ...mapGetters(["allProperties"])
+    ...mapGetters(["allProperties", "getLandlordById"])
   },
   methods: {
-    ...mapActions(["fetchProperties"])
+    ...mapActions(["fetchProperties"]),
+    generateLandlord(id) {
+      return this.getLandlordById(id)
+    }
   }
 }
 </script>

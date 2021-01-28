@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "Landlord",
@@ -36,9 +36,15 @@ export default {
     }
   },
   methods: {
-    toggle() {
-      this.addVisible = !this.addVisible
-    }
+    ...mapActions(["updateLandlord"]),
+    toggleEdit() {
+      this.showEdit = !this.showEdit
+    },
+    handleEdit(e) {
+      e.preventDefault();
+      this.updateLandlord(this.landlord)
+      console.log(`you edited ${this.landlord.name}`)
+    },
   }
 }
 </script>

@@ -1,29 +1,19 @@
 <template>
-  <div class="wrapper">
-    <button @click="$router.go(-1)">Go Back</button>
-    <button @click="toggle">Add a Landlord</button>
-    <hr v-show="addVisible">
-    <div class="container">
-        <div class="landlord-img">
-          <img :src="landlord.image" class="landlord-img"> 
-        </div>
-        <div class="property-panel">
-          <ul>
-            <li v-for="property in landlord.properties" :key="property.id">
-              {{ property }}
-            </li>
-          </ul>
-        </div>
-    </div>
-    <div class="container">
-      <div class="name-rating-col">
-        <h1>{{ landlord.name }}</h1>
-        <h2>Rating: {{ landlord.rating }}</h2>
-      </div>
-      <div class="edit-col">
-        <button>Edit Landlord</button>
-      </div>
-    </div>
+  <div>
+    <h1>{{ landlord.name }}</h1>
+    <h2>Rating: {{ landlord.rating }}</h2>
+    <h2>Properties: <span v-show="!landlord.properties.length">None</span> </h2>
+    <ul>
+      <li v-for="property in landlord.properties" :key="property">
+        {{ property }}
+      </li>
+    </ul>
+    <form v-show="showEdit" @submit="handleEdit">
+      <input type="text" v-model="landlord.name">
+      <input @click="toggleEdit" type="button" value="Cancel">
+      <input type="submit" value="Save">
+    </form>
+    <button v-show="!showEdit" @click="toggleEdit">Edit Landlord</button>
   </div>
 </template>
 

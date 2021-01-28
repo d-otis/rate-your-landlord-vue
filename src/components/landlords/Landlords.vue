@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters,  } from 'vuex'
 import LandlordInput from './LandlordInput'
 
 export default {
@@ -39,14 +39,10 @@ export default {
   },
   computed: mapGetters(['allLandlords']),
   methods: {
-    ...mapActions(["fetchLandlords"]),
     toggle() {
       this.addLandlordShow = !this.addLandlordShow
     }
   },
-  created() {
-    this.fetchLandlords()
-  }
 }
 </script>
 

@@ -30,18 +30,14 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: "Properties",
-  created() {
-    this.fetchProperties()
-  },
   computed: {
     ...mapGetters(["allProperties", "getLandlordById"])
   },
   methods: {
-    ...mapActions(["fetchProperties"]),
     generateLandlord(id) {
       return this.getLandlordById(id)
     }

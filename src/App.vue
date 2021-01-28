@@ -11,9 +11,18 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   name: "App",
+  methods: {
+    ...mapActions(["fetchLandlords", "fetchProperties"])
+  },
+  created() {
+    this.fetchLandlords(
+    this.fetchProperties()
+    )
+  }
 }
 </script>
 

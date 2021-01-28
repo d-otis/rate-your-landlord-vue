@@ -56,6 +56,20 @@ const mutations = {
       ...state.landlords
     ]
   },
+  updateLandlord: (state, landlord) => {
+    const index = state.landlords.findIndex(l => l.id === landlord.id)
+    const updatedLandlord = {
+      id: landlord.id,
+      name: landlord.attributes.name,
+      rating: formatRating(landlord.attributes.rating),
+      image: landlord.attributes.image_url,
+      properties: landlord.relationships.properties.data.map(property => property.id),
+      reviews: landlord.relationships.reviews.data.map(review => review)
+    }
+    state.landlords = [
+      ...state.landlords.slice(0, index), updatedLandlord, ...state.landlords.slice(index + 1)
+    ]
+  }
 }
 
 export default {

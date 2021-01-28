@@ -39,7 +39,7 @@ export default {
     //   }
     // }),
     landlord() {
-      const id = this.$route.params.landlordId
+      const id = this.landlordId
       return this.getLandlordById(id)
     }
   },

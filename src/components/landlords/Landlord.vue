@@ -4,8 +4,8 @@
     <h2>Rating: {{ landlord.rating }}</h2>
     <h2>Properties: <span v-show="!landlord.properties.length">None</span> </h2>
     <ul>
-      <li v-for="property in landlord.properties" :key="property">
-        {{ property }}
+      <li v-for="property in properties" :key="property.id">
+        {{ property.address }}
       </li>
     </ul>
     <form v-show="showEdit" @submit="handleEdit">
@@ -41,6 +41,9 @@ export default {
     landlord() {
       const id = this.landlordId
       return this.getLandlordById(id)
+    },
+    properties() {
+      return this.allProperties.filter(property => property.landlordId === this.landlord.id)
     }
   },
   methods: {

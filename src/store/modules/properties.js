@@ -7,7 +7,15 @@ const state = {
 
 const getters = {
   allProperties: state => state.properties,
-  getPropertyById: state => id => state.properties.find(property => property.id === id)
+  getPropertyById: state => id => state.properties.find(property => property.id === id),
+  getPropertiesByIds: state => ids => {
+    const matched = []
+    ids.forEach(id => {
+      let match = state.properties.find(property => property.id === id)
+      if (match) { matched.push(match) }
+    })
+    return matched
+  }
 }
 
 const actions = {

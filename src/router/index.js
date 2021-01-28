@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Landlords from '../components/landlords/Landlords'
 import Landlord from '../components/landlords/Landlord'
+import Properties from '../components/properties/Properties'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,12 @@ const routes = [
     name: "landlord",
     component: Landlord,
     props: route => ({ landlordId: route.params.landlordId })
+  },
+
+  {
+    path: "/properties",
+    name: "Properties",
+    component: Properties
   }
 ]
 

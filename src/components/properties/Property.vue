@@ -3,11 +3,8 @@
     <h1>{{ property.address }} ({{ property.rating }})</h1>
     <h2>Landlord: {{ landlord.name }} ({{ landlord.rating }})</h2>
     <img :src="property.image" alt="">
-    <ul> <h2>Reviews: <span v-show="!property.reviews.length">None</span> </h2>  
-      <li v-for="review in reviews" :key="review.id">
-       <span class="review-rating">{{ review.rating }}</span>  - {{ review.content }}
-      </li>
-    </ul>
+    <h2>Reviews: <span v-show="!property.reviews.length">None</span> </h2>  
+    <Review v-for="review in reviews" :key="review.id" :review="review" />
   </div>
 </template>
 

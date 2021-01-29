@@ -17,13 +17,16 @@ export default {
   name: "Property",
   props: ["propertyId"],
   computed: {
-    ...mapGetters(["getPropertyById", "getLandlordById"]),
+    ...mapGetters(["getPropertyById", "getLandlordById", "getReviewsByIds"]),
     property() {
       const id = this.propertyId
       return this.getPropertyById(id)
     },
     landlord() {
       return this.getLandlordById(this.property.landlordId)
+    },
+    reviews() {
+      return this.getReviewsByIds(this.property.reviews)
     }
   }
 }

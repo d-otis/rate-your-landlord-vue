@@ -24,3 +24,16 @@ export function normalizeProperty(property) {
     rating: formatRating(property.attributes.rating)
   }
 }
+
+export function normalizeReview(review) {
+  return {
+    id: review.id,
+    content: review.attributes.content,
+    rating: review.attributes.rating,
+    propertyId: review.attributes.property_id,
+    landlordId: review.attributes.landlord_id,
+    address: review.attributes.address,
+    landlordRating: formatRating(review.attributes.landlord_rating),
+    propertyRating: formatRating(review.attributes.property_rating)
+  }
+}

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "PropertyInput",
@@ -33,8 +33,14 @@ export default {
   methods: {
     handleSubmit(e) {
       e.preventDefault();
-      console.log('added property')
+      this.createProperty({
+        address: this.address,
+        image: this.image,
+        landlord_id: this.landlordId
+      })
+      console.log(`added property: ${this.address}`)
     },
+    ...mapActions(["createProperty"])
   },
   computed: {
     ...mapGetters(["allLandlords"])

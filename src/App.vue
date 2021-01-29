@@ -16,12 +16,12 @@ import { mapActions } from 'vuex'
 export default {
   name: "App",
   methods: {
-    ...mapActions(["fetchLandlords", "fetchProperties"])
+    ...mapActions(["fetchLandlords", "fetchProperties", "fetchReviews"])
   },
   created() {
-    this.fetchLandlords(
+    this.fetchLandlords()
     this.fetchProperties()
-    )
+    this.fetchReviews()
   }
 }
 </script>

@@ -22,6 +22,11 @@ const actions = {
   async fetchProperties({ commit }) {
     const response = await axios.get("http://localhost:3000/api/v1/properties/")
     commit("setProperties", response.data.data)
+  },
+  async createProperty({ commit }, property) {
+    const response = await axios.post("http://localhost:3000/api/v1/properties/", { property })
+
+    commit('addProperty', response.data.data)
   }
 }
 

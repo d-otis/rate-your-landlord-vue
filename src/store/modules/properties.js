@@ -33,6 +33,9 @@ const actions = {
 const mutations = {
   setProperties: (state, properties) => {
     state.properties = properties.map(property => normalizeProperty(property))
+  },
+  addProperty: (state, property) => {
+    state.properties = [ normalizeProperty(property), ...state.properties ]
   }
 }
 

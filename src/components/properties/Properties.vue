@@ -1,6 +1,7 @@
 <template>
   <div class="table-container">
-    <PropertyInput />
+    <PropertyInput v-show="showInput" v-on:toggle-input="toggleInput" />
+    <button v-show="!showInput" @click="toggleInput">Add Property</button>
     <h1>Properties Index</h1>
     <table>
       <thead>

@@ -13,9 +13,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import Review from '../reviews/Review'
 export default {
   name: "Property",
   props: ["propertyId"],
+  components: {
+    Review
+  },
   computed: {
     ...mapGetters(["getPropertyById", "getLandlordById", "getReviewsByIds"]),
     property() {

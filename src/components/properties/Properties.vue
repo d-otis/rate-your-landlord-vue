@@ -1,5 +1,6 @@
 <template>
   <div class="table-container">
+    <PropertyInput />
     <h1>Properties Index</h1>
     <table>
       <thead>
@@ -31,9 +32,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import PropertyInput from './PropertyInput'
 
 export default {
   name: "Properties",
+  components: {
+    PropertyInput
+  },
   computed: {
     ...mapGetters(["allProperties", "getLandlordById"])
   },

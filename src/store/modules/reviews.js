@@ -5,7 +5,17 @@ const state = {
   reviews: []
 }
 
-const getters = {}
+const getters = {
+  allReviews: state => state.reviews,
+  getReviewsByIds: state => ids => {
+    const matched = []
+    ids.forEach(id => {
+      let match = state.reviews.find(review => review.id === id)
+      if (match) { matched.push(match) }
+    })
+    return matched
+  }
+}
 
 const actions = {
   async fetchReviews({ commit }) {

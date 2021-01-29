@@ -36,6 +36,11 @@ import PropertyInput from './PropertyInput'
 
 export default {
   name: "Properties",
+  data() {
+    return {
+      showInput: false
+    }
+  },
   components: {
     PropertyInput
   },
@@ -45,6 +50,9 @@ export default {
   methods: {
     generateLandlord(id) {
       return this.getLandlordById(id)
+    },
+    toggleInput() {
+      this.showInput = !this.showInput
     }
   }
 }

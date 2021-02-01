@@ -48,6 +48,9 @@ const mutations = {
     state.landlords = [
       ...state.landlords.slice(0, index), normalizeLandlord(landlord), ...state.landlords.slice(index + 1)
     ]
+  },
+  deleteLandlord: (state, id) => {
+    state.landlords = state.landlords.filter(landlord => landlord.id !== id)
   }
 }
 

@@ -11,6 +11,7 @@
           <th>Rating</th>
           <th>Properties</th>
           <th>View</th>
+          <th>Delete</th>
         </tr>
       </thead>
       <tr v-for="landlord in allLandlords" :key="landlord.id">
@@ -18,13 +19,14 @@
         <td>{{ landlord.rating }}</td>
         <td>{{ landlord.properties.length }}</td>
         <td><router-link v-bind:to="{ name: 'landlord', params: {landlordId: landlord.id} }">view</router-link></td>
+        <td><button @click="handleDelete" :id="landlord.id">Delete</button></td>
       </tr>
     </table>
   </div>
 </template>
 
 <script>
-import { mapGetters,  } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import LandlordInput from './LandlordInput'
 
 export default {
@@ -41,6 +43,13 @@ export default {
   methods: {
     toggle() {
       this.addLandlordShow = !this.addLandlordShow
+    },
+    ...mapActions(['deleteLandlord']),
+    handleDelete(e) {
+      // eslint-disable-next-line
+      // debugger
+      // console.log(e)
+      this.deleteLandlord(e.target.id)
     }
   },
 }

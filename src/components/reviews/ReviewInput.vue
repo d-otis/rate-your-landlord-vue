@@ -1,0 +1,28 @@
+<template>
+  <form>
+    <h2>Leave a Review Here:</h2>
+    <textarea name="" id="" cols="30" rows="10" v-model="content"></textarea>
+    <br>
+    <input type="range" name="" id="" min="1" max="5" step="1" v-model="rating"> Rating: {{ rating }}
+    <br>
+    <input type="submit" value="Save">
+  </form>
+</template>
+
+<script>
+export default {
+  name: "ReviewInput",
+  props: ["propertyId"],
+  data() {
+    return {
+      content: "",
+      rating: "",
+      property_id: this.propertyId
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>

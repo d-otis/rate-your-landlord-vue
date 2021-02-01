@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit="handleSubmit">
     <h2>Leave a Review Here:</h2>
     <textarea name="" id="" cols="30" rows="10" v-model="content"></textarea>
     <br>
@@ -18,6 +18,12 @@ export default {
       content: "",
       rating: "",
       property_id: this.propertyId
+    }
+  },
+  methods: {
+    handleSubmit(e) {
+      e.preventDefault();
+      console.log('submitted!')
     }
   }
 }

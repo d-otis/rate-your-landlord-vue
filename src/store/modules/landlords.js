@@ -25,6 +25,13 @@ const actions = {
     const response = await axios.patch(`http://localhost:3000/api/v1/landlords/${landlord.id}`, { name: landlord.name })
 
     commit("updateLandlord", response.data.data)
+  },
+  async deleteLandlord({ commit }, id) {
+    const response = await axios.delete(`http://localhost:3000/api/v1/landlords/${id}`)
+
+    // eslint-disable-next-line
+    // debugger
+    commit("deleteLandlord", response.data.data.id)
   }
 }
 

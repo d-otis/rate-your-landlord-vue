@@ -18,7 +18,9 @@ import ReviewInput from '../reviews/ReviewInput'
 
 export default {
   name: "Property",
-  props: ["propertyId"],
+  props: {
+    propertyId: String
+  },
   data() {
     return {
       showReviewInput: false

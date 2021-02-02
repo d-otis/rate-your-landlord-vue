@@ -22,6 +22,11 @@ const actions = {
     const response = await axios.get("http://localhost:3000/api/v1/reviews/")
 
     commit("setReviews", response.data.data)
+  },
+  async createReview({ commit }, review) {
+    const response = await axios.post("http://localhost:3000/api/v1/reviews/", { review })
+
+    commit("addReview", response.data.data)
   }
 }
 

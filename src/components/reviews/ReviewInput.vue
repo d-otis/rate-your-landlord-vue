@@ -27,7 +27,14 @@ export default {
   methods: {
     handleSubmit(e) {
       e.preventDefault();
-      console.log('submitted!')
+      this.createReview({
+        content: this.content,
+        rating: this.rating,
+        property_id: this.propertyId
+      })
+      this.$emit('toggle-review-input')
+      this.content = ""
+      this.rating = "5"
     },
     ...mapActions(["createReview"])
   }

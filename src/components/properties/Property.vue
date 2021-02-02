@@ -5,7 +5,7 @@
     <img :src="property.image" alt="">
     <br>
     <button @click="toggleReviewInput">Leave a Review</button>
-    <ReviewInput v-show="showReviewInput" :propertyId="propertyId" />
+    <ReviewInput v-show="showReviewInput" :propertyId="propertyId" v-on:toggle-review-input="toggleReviewInput" />
     <h2>Reviews: <span v-show="!property.reviews.length">None</span> </h2>
     <Review v-for="review in reviews" :key="review.id" :review="review" />
   </div>

@@ -14,7 +14,9 @@ import { mapActions } from 'vuex'
 
 export default {
   name: "ReviewInput",
-  props: ["propertyId"],
+  props: {
+    propertyId: String
+  },
   data() {
     return {
       content: "",

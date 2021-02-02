@@ -33,6 +33,9 @@ const actions = {
 const mutations = {
   setReviews: (state, reviews) => {
     state.reviews = reviews.map(review => normalizeReview(review))
+  },
+  addReview: (state, review) => {
+    state.reviews.push(normalizeReview(review))
   }
 }
 

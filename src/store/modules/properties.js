@@ -36,6 +36,20 @@ const mutations = {
   },
   addProperty: (state, property) => {
     state.properties = [ normalizeProperty(property), ...state.properties ]
+  },
+  updatePropertyWithReview: (state, review) => {
+    const propertyId = review.attributes.property_id
+    const property = state.properties.find(property => property.id === propertyId)
+    const index = state.properties.findIndex(property => property.id === propertyId)
+
+    property.rating = review.attributes.property_rating
+    property.reviews.unshift(review.id)
+
+    state.properties = [
+      ...state.properties.slice(0, index),
+      property,
+      ...state.properties.slice(index + 1)
+    ]
   }
 }
 

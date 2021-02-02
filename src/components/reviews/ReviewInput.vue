@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: "ReviewInput",
   props: ["propertyId"],
@@ -24,7 +26,8 @@ export default {
     handleSubmit(e) {
       e.preventDefault();
       console.log('submitted!')
-    }
+    },
+    ...mapActions(["createReview"])
   }
 }
 </script>

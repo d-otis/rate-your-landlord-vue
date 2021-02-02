@@ -27,6 +27,7 @@ const actions = {
     const response = await axios.post("http://localhost:3000/api/v1/reviews/", { review })
 
     commit("addReview", response.data.data)
+    commit("updatePropertyWithReview", response.data.data)
   }
 }
 

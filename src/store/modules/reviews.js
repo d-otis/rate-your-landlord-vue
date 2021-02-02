@@ -28,6 +28,7 @@ const actions = {
 
     commit("addReview", response.data.data)
     commit("updatePropertyWithReview", response.data.data)
+    commit("updateLandlordWithReview", response.data.data)
   }
 }
 

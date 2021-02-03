@@ -5,7 +5,7 @@
       <label for="address">Address:</label>
       <input type="text" name="" id="address" v-model="address">
       <label for="landlord">Select Landlord:</label>
-      <select name="" id="" v-model="landlordId">
+      <select name="" id="" v-model="landlordId" @change="checkForNewLandlord">
         <option value="choose">--</option>
         <option v-for="landlord in allLandlords" :value="landlord.id" :key="landlord.id">{{ landlord.name }}</option>
         <option value="new">Create New Landlord</option>
@@ -40,7 +40,15 @@ export default {
       })
       console.log(`added property: ${this.address}`)
     },
-    ...mapActions(["createProperty"])
+    checkForNewLandlord() {
+      if (this.landlordId ==='new') {
+        this.showNewLandlordInput = true
+      } else {
+        this.showNewLandlordInput = false
+        this.landlordName = ""
+      }
+    },
+    ...mapActions(["createProperty", "createLandlord"])
   },
   computed: {
     ...mapGetters(["allLandlords"])

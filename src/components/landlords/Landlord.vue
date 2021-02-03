@@ -5,7 +5,7 @@
     <h2>Properties: <span v-show="!landlord.properties.length">None</span> </h2>
     <ul>
       <li v-for="property in properties" :key="property.id">
-        {{ property.address }}
+       <router-link :to="{ name: 'property', params: {propertyId: property.id} }">{{ property.address }}</router-link> 
       </li>
     </ul>
     <form v-show="showEdit" @submit="handleEdit">

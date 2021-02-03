@@ -18,7 +18,7 @@
       <label for="image">Image Url</label>
       <input type="text" id="image" v-model="image_url">
       <input type="submit" value="Create Property">
-      <button @click="$emit('toggle-input')">Cancel</button>
+      <button type="button" @click="$emit('toggle-input')">Cancel</button>
     </form>
   </div>
 </template>

@@ -22,7 +22,9 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "Landlord",
-  props: ["landlordId"],
+  props: {
+    landlordId: String
+  },
   data() {
     return {
       addVisible: false,

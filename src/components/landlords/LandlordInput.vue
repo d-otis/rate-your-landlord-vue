@@ -23,7 +23,7 @@ export default {
   methods: {
     handleSubmit(e) {
       e.preventDefault();
-      this.addLandlord(this.name)
+      this.createLandlord({name: this.name})
       this.$emit('toggle-input-vis')
       this.name = ""
     },

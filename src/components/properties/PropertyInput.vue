@@ -10,6 +10,11 @@
         <option v-for="landlord in allLandlords" :value="landlord.id" :key="landlord.id">{{ landlord.name }}</option>
         <option value="new">Create New Landlord</option>
       </select>
+      <div v-show="showNewLandlordInput">
+        <label for="landlord-name">Create a New Landlord</label>
+        <br>
+        <input type="text" name="" id="landlord-name" v-model="landlordName">
+      </div>
       <label for="image">Image Url</label>
       <input type="text" id="image" v-model="image_url">
       <input type="submit" value="Create Property">

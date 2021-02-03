@@ -27,7 +27,7 @@ export default {
       this.$emit('toggle-input-vis')
       this.name = ""
     },
-    ...mapActions(["addLandlord"])
+    ...mapActions(["createLandlord"])
   }
   // methods: mapActions(["addLandlord"])
 }

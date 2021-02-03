@@ -5,7 +5,9 @@
 <script>
 export default {
   name: "Review",
-  props: ["review"]
+  props: {
+    review: Object
+  }
 }
 </script>
 

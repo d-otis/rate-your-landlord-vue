@@ -27,6 +27,7 @@ const actions = {
     const response = await axios.post("http://localhost:3000/api/v1/properties/", { property })
 
     commit('addProperty', response.data.data)
+    commit('addPropertyToLandlord', response.data.data)
   }
 }
 

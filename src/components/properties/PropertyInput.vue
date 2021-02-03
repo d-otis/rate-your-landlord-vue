@@ -27,7 +27,9 @@ export default {
     return {
       address: "",
       landlordId: "",
-      image_url: ""
+      image_url: "",
+      showNewLandlordInput: false,
+      landlordName: ""
     }
   },
   methods: {

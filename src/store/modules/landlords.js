@@ -49,6 +49,17 @@ const mutations = {
       ...state.landlords.slice(0, index), normalizeLandlord(landlord), ...state.landlords.slice(index + 1)
     ]
   },
+  addPropertyToLandlord: (state, property) => {
+    const targetLandlord = state.landlords.find(ll => ll.id === property.attributes.landlord_id)
+    const index = state.landlords.findIndex(ll => ll.id === targetLandlord.id)
+    targetLandlord.properties.unshift(property.id)
+    
+    state.landlords = [
+      ...state.landlords.slice(0, index),
+      targetLandlord,
+      ...state.landlords.slice(index + 1)
+    ]
+  },
   updateLandlordWithReview: (state, review) => updateResourceWithReview(state, review),
   deleteLandlord: (state, id) => {
     state.landlords = state.landlords.filter(landlord => landlord.id !== id)

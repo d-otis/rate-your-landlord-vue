@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { normalizeProperty, formatRating } from '../../util'
+import { normalizeProperty, updateResourceWithReview } from '../../util'
 
 const state = {
   properties: []
@@ -37,20 +37,7 @@ const mutations = {
   addProperty: (state, property) => {
     state.properties = [ normalizeProperty(property), ...state.properties ]
   },
-  updatePropertyWithReview: (state, review) => {
-    const propertyId = review.attributes.property_id
-    const property = state.properties.find(property => property.id === propertyId)
-    const index = state.properties.findIndex(property => property.id === propertyId)
-
-    property.rating = formatRating(review.attributes.property_rating)
-    property.reviews.unshift(review.id)
-
-    state.properties = [
-      ...state.properties.slice(0, index),
-      property,
-      ...state.properties.slice(index + 1)
-    ]
-  }
+  updatePropertyWithReview: (state, review) => updateResourceWithReview(state, review)
 }
 
 export default {

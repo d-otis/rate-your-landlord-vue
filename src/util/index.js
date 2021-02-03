@@ -39,3 +39,27 @@ export function normalizeReview(review) {
     propertyRating: formatRating(review.attributes.property_rating)
   }
 }
+
+export function updateResourceWithReview(state, review) {
+
+  if (Object.keys(state).length > 1) {
+    console.warn('You added a key to the state and need to update this function/handle ur life!!!')
+    return
+  }
+
+  const collectionKey = Object.keys(state)[0]
+  const singular = pluralize.singular(collectionKey)
+
+  const resourceId = review.attributes[`${singular}_id`]
+  const resource = state[collectionKey].find(el => el.id === resourceId)
+  const index = state[collectionKey].findIndex(el => el.id === resourceId)
+
+  resource.rating = formatRating(review.attributes[`${singular}_rating`])
+  resource.reviews.unshift(review.id)
+
+  state[collectionKey] = [
+    ...state[collectionKey].slice(0, index),
+    resource,
+    ...state[collectionKey].slice(index + 1)
+  ]
+}

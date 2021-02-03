@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ property.address }} ({{ property.rating }})</h1>
-    <h2>Landlord: {{ landlord.name }} ({{ landlord.rating }})</h2>
+    <h2>Landlord: <router-link :to="{ name: 'landlord', params: {landlordId: landlord.id} }" >{{ landlord.name }}</router-link> ({{ landlord.rating }})</h2>
     <img :src="property.image" alt="">
     <br>
     <button @click="toggleReviewInput">Leave a Review</button>

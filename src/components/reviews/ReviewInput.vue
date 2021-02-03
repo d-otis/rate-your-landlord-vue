@@ -6,6 +6,8 @@
     <input type="range" name="" id="" min="1" max="5" step="1" v-model="rating"> Rating: {{ rating }}
     <br>
     <input type="submit" value="Save">
+    <br>
+   <button type="button" @click="$emit('toggle-review-input')">Cancel</button>
   </form>
 </template>
 

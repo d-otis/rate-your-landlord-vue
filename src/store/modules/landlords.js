@@ -16,8 +16,8 @@ const actions = {
 
     commit("setLandlords", response.data.data)
   },
-  async addLandlord({ commit }, landlord) {
-    const response = await axios.post("http://localhost:3000/api/v1/landlords/", { name: landlord })
+  async createLandlord({ commit }, landlord) {
+    const response = await axios.post("http://localhost:3000/api/v1/landlords/", { landlord })
      
     commit("newLandlord", response.data.data)
   },
@@ -53,7 +53,7 @@ const mutations = {
     const targetLandlord = state.landlords.find(ll => ll.id === property.attributes.landlord_id)
     const index = state.landlords.findIndex(ll => ll.id === targetLandlord.id)
     targetLandlord.properties.unshift(property.id)
-    
+
     state.landlords = [
       ...state.landlords.slice(0, index),
       targetLandlord,

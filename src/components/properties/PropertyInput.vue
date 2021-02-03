@@ -40,12 +40,27 @@ export default {
   methods: {
     handleSubmit(e) {
       e.preventDefault();
-      this.createProperty({
-        address: this.address,
-        image_url: this.image_url,
-        landlord_id: this.landlordId
-      })
-      console.log(`added property: ${this.address}`)
+      if (this.landlordId === 'new') {
+        this.createLandlord({
+          name: this.landlordName,
+          properties_attributes: [{
+            address: this.address,
+            image_url: this.image_url
+          }]
+        })
+      } else {
+        this.createProperty({
+          address: this.address,
+          image_url: this.image_url,
+          landlord_id: this.landlordId
+        })
+      }
+      this.address = ""
+      this.landlordId = ""
+      this.image_url = ""
+      this.showNewLandlordInput = false
+      this.landlordName = ""
+      this.$emit('toggle-input')
     },
     checkForNewLandlord() {
       if (this.landlordId ==='new') {

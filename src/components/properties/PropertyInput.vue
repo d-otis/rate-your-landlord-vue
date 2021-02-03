@@ -11,7 +11,7 @@
         <option value="new">Create New Landlord</option>
       </select>
       <label for="image">Image Url</label>
-      <input type="text" id="image" v-model="image">
+      <input type="text" id="image" v-model="image_url">
       <input type="submit" value="Create Property">
       <button @click="$emit('toggle-input')">Cancel</button>
     </form>
@@ -27,7 +27,7 @@ export default {
     return {
       address: "",
       landlordId: "",
-      image: ""
+      image_url: ""
     }
   },
   methods: {
@@ -35,7 +35,7 @@ export default {
       e.preventDefault();
       this.createProperty({
         address: this.address,
-        image: this.image,
+        image_url: this.image,
         landlord_id: this.landlordId
       })
       console.log(`added property: ${this.address}`)

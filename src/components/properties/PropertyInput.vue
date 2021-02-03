@@ -35,7 +35,7 @@ export default {
       e.preventDefault();
       this.createProperty({
         address: this.address,
-        image_url: this.image,
+        image_url: this.image_url,
         landlord_id: this.landlordId
       })
       console.log(`added property: ${this.address}`)

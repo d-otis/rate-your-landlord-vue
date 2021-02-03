@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { normalizeLandlord, formatRating } from '../../util'
+import { normalizeLandlord, updateResourceWithReview } from '../../util'
 
 const state = {
   landlords: []
@@ -49,20 +49,7 @@ const mutations = {
       ...state.landlords.slice(0, index), normalizeLandlord(landlord), ...state.landlords.slice(index + 1)
     ]
   },
-  updateLandlordWithReview: (state, review) => {
-    const landlordId = review.attributes.landlord_id
-    const landlord = state.landlords.find(landlord => landlord.id === landlordId)
-    const index = state.landlords.findIndex(landlord => landlord.id === landlordId)
-
-    landlord.rating = formatRating(review.attributes.landlord_rating)
-    landlord.reviews.unshift(review.id)
-
-    state.landlords = [
-      ...state.landlords.slice(0, index),
-      landlord,
-      ...state.landlords.slice(index + 1)
-    ]
-  },
+  updateLandlordWithReview: (state, review) => updateResourceWithReview(state, review),
   deleteLandlord: (state, id) => {
     state.landlords = state.landlords.filter(landlord => landlord.id !== id)
   }

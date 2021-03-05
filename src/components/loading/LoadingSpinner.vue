@@ -1,5 +1,7 @@
 <template>
-  <h1>Spinner</h1>
+  <div class="spinner-container">
+    <img :src="'./spinner.gif'" alt="">
+  </div>
 </template>
 
 <script>

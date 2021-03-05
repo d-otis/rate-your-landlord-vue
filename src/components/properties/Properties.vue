@@ -2,8 +2,8 @@
   <div class="table-container">
     <PropertyInput v-show="showInput" v-on:toggle-input="toggleInput" />
     <button v-show="!showInput" @click="toggleInput">Add Property</button>
-    <h1>Properties Index</h1>
-    <table>
+    <h1> <span v-show="!allProperties.length">Loading: </span> Properties Index</h1>
+    <table v-show="allProperties.length">
       <thead>
         <tr>
           <th>Address</th>

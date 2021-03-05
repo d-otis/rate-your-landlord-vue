@@ -68,4 +68,8 @@ export default {
     display: flex;
     flex-direction: column;
   }
+
+  span {
+    font-style: italic;
+  }
 </style>

@@ -3,6 +3,7 @@
     <PropertyInput v-show="showInput" v-on:toggle-input="toggleInput" />
     <button v-show="!showInput" @click="toggleInput">Add Property</button>
     <h1> <span v-show="!allProperties.length">Loading: </span> Properties Index</h1>
+    <LoadingSpinner v-show="!allProperties.length" />
     <table v-show="allProperties.length">
       <thead>
         <tr>
@@ -34,6 +35,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import PropertyInput from './PropertyInput'
+import LoadingSpinner from '../loading/LoadingSpinner'
 
 export default {
   name: "Properties",
@@ -43,7 +45,8 @@ export default {
     }
   },
   components: {
-    PropertyInput
+    PropertyInput,
+    LoadingSpinner
   },
   computed: {
     ...mapGetters(["allProperties", "getLandlordById"])

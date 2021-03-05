@@ -4,7 +4,7 @@
      <button @click="toggle" v-show="!addLandlordShow">Add a Landlord</button>
      <button @click="toggle" v-show="addLandlordShow">Cancel</button>
     <h1> <span v-show="!allLandlords.length">Loading: </span> Landlords Index</h1>
-    <LoadingSpinner />
+    <LoadingSpinner v-show="!allLandlords.length" />
     <table v-show="allLandlords.length">
       <thead>
         <tr>

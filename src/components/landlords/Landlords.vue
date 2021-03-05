@@ -4,6 +4,7 @@
      <button @click="toggle" v-show="!addLandlordShow">Add a Landlord</button>
      <button @click="toggle" v-show="addLandlordShow">Cancel</button>
     <h1> <span v-show="!allLandlords.length">Loading: </span> Landlords Index</h1>
+    <LoadingSpinner />
     <table>
       <thead>
         <tr>
@@ -28,6 +29,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import LandlordInput from './LandlordInput'
+import LoadingSpinner from '../loading/LoadingSpinner'
 
 export default {
   name: "Landlords",
@@ -37,7 +39,8 @@ export default {
     }
   },
   components: {
-    LandlordInput
+    LandlordInput,
+    LoadingSpinner
   },
   computed: mapGetters(['allLandlords']),
   methods: {

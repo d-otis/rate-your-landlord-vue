@@ -11,5 +11,10 @@ export default {
 </script>
 
 <style>
+  .spinner-container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+  }
 
 </style>

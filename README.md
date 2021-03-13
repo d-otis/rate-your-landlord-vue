@@ -2,7 +2,6 @@
 
 ## Todo
 
-- loading component
-- link to properties from landlord show page
+- loading component for Reviews Index
 - client-side form validations
 - styling!

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Navigation />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
@@ -7,14 +8,19 @@
       <router-link to="/properties">Properties</router-link>
     </div>
     <router-view/>
+    
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import Navigation from './components/navigation/Navigation'
 
 export default {
   name: "App",
+  components: {
+    Navigation
+  },
   methods: {
     ...mapActions(["fetchLandlords", "fetchProperties", "fetchReviews"])
   },

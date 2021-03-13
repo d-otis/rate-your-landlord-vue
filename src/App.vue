@@ -8,7 +8,6 @@
       <router-link to="/properties">Properties</router-link>
     </div>
     <router-view/>
-    
   </div>
 </template>
 

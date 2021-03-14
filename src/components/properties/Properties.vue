@@ -1,36 +1,14 @@
 <template>
   <b-row>
-    <div class="table-container">
-      <PropertyInput v-show="showInput" v-on:toggle-input="toggleInput" />
-      <button v-show="!showInput" @click="toggleInput">Add Property</button>
-      <h1> <span v-show="!allProperties.length">Loading: </span> Properties Index</h1>
-      <LoadingSpinner v-show="!allProperties.length" />
-      <table v-show="allProperties.length">
-        <thead>
-          <tr>
-            <th>Address</th>
-            <th>Landlord</th>
-            <th>Landlord Rating</th>
-            <th>Property Rating</th>
-            <th># of Reviews</th>
-            <th>View</th>
-          </tr>
-        </thead>
-        <tr v-for="property in allProperties" :key="property.id">
-          <td>{{ property.address }}</td>
-          <td>
-            <router-link 
-              v-bind:to="{ name: 'landlord', params: { landlordId: generateLandlord(property.landlordId).id } }">
-              {{ generateLandlord(property.landlordId).name }}
-            </router-link>
-          </td>
-          <td>{{ generateLandlord(property.landlordId).rating }}</td>
-          <td>{{ property.rating }}</td>
-          <td>{{ property.reviews.length }}</td>
-          <td><router-link v-bind:to="`properties/${property.id}`" >View</router-link></td>
-        </tr>
-      </table>
-    </div>
+    <b-col>
+      <div class="table-container">
+        <PropertyInput v-show="showInput" v-on:toggle-input="toggleInput" />
+        <button v-show="!showInput" @click="toggleInput">Add Property</button>
+        <h1> <span v-show="!allProperties.length">Loading: </span> Properties Index</h1>
+        <LoadingSpinner v-show="!allProperties.length" />
+        <PropertyRowCard v-for="property in allProperties" :key="property.id" :property="property" />
+      </div>
+    </b-col>
   </b-row>
 </template>
 
@@ -38,6 +16,7 @@
 import { mapGetters } from 'vuex'
 import PropertyInput from './PropertyInput'
 import LoadingSpinner from '../loading/LoadingSpinner'
+import PropertyRowCard from './PropertyRowCard'
 
 export default {
   name: "Properties",
@@ -48,7 +27,8 @@ export default {
   },
   components: {
     PropertyInput,
-    LoadingSpinner
+    LoadingSpinner,
+    PropertyRowCard
   },
   computed: {
     ...mapGetters(["allProperties", "getLandlordById"])

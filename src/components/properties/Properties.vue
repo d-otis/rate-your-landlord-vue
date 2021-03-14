@@ -1,13 +1,11 @@
 <template>
   <b-row>
     <b-col>
-      <div class="table-container">
         <PropertyInput v-show="showInput" v-on:toggle-input="toggleInput" />
         <button v-show="!showInput" @click="toggleInput">Add Property</button>
         <h1> <span v-show="!allProperties.length">Loading: </span> Properties Index</h1>
         <LoadingSpinner v-show="!allProperties.length" />
         <PropertyRowCard v-for="property in allProperties" :key="property.id" :property="property" />
-      </div>
     </b-col>
   </b-row>
 </template>

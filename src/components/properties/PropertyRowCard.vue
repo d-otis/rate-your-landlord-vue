@@ -4,7 +4,10 @@
 
 <script>
 export default {
-  name: "PropertyRowCard"
+  name: "PropertyRowCard",
+  props: {
+    property: Object
+  }
 }
 </script>
 

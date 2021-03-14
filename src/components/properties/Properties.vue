@@ -43,16 +43,4 @@ export default {
 </script>
 
 <style scoped>
-  tr:nth-child(odd) {
-    background: #ccc
-  }
-
-  .table-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  span {
-    font-style: italic;
-  }
 </style>

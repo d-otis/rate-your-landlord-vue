@@ -1,5 +1,5 @@
 <template>
-  <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+  <b-card no-body class="overflow-hidden">
     <b-card-header header-tag="h3">{{ property.address }}</b-card-header>
     <b-card-body>
       <b-container>

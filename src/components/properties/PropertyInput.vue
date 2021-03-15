@@ -62,7 +62,7 @@
       </b-form-input>
     </b-form-group>
 
-      <input type="submit" value="Create Property">
+      <b-button type="submit">Create Property</b-button>
       <button type="button" @click="$emit('toggle-input')">Cancel</button>
     </b-form>
   </div>

@@ -34,12 +34,6 @@
       </b-form-select>
     </b-form-group>
 
-      <label for="landlord">Select Landlord:</label>
-      <select name="" id="" v-model="landlordId" @change="checkForNewLandlord">
-        <option value="choose">--</option>
-        <option v-for="landlord in allLandlords" :value="landlord.id" :key="landlord.id">{{ landlord.name }}</option>
-        <option value="new">Create New Landlord</option>
-      </select>
       <div v-show="showNewLandlordInput">
         <label for="landlord-name">Create a New Landlord</label>
         <br>

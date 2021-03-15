@@ -13,7 +13,7 @@
         id="address"
         v-model="address"
         placeholder="Enter Address"
-        require
+        required
         >
         </b-form-input>
     </b-form-group>

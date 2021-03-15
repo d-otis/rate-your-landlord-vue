@@ -48,8 +48,20 @@
       </b-form-input>
     </b-form-group>
 
-      <label for="image">Image Url</label>
-      <input type="text" id="image" v-model="image_url">
+    <b-form-group
+    label="Image URL"
+    id="image-group"
+    label-for="image"
+    required
+    >
+      <b-form-input
+      type="url"
+      id="image"
+      v-model="image_url"
+      >
+      </b-form-input>
+    </b-form-group>
+
       <input type="submit" value="Create Property">
       <button type="button" @click="$emit('toggle-input')">Cancel</button>
     </b-form>

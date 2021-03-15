@@ -12,7 +12,9 @@
               <b-card-text text-tag="h6">Landlord Rating: {{ landlord.rating }}</b-card-text>
               <b-card-text text-tag="h6">Property Rating: {{ property.rating }}</b-card-text>
               <b-card-text >This property has {{ property.reviews.length }} reviews.</b-card-text>
-              <b-button>Leave a Review || Read Reviews</b-button>
+              <router-link :to="{ name: 'property', params: { propertyId: property.id } }" >
+                <b-button>{{ reviewButtonText(property) }}</b-button>
+              </router-link>
           </b-col>
         </b-row>
       </b-container>

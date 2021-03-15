@@ -26,6 +26,12 @@ export default {
   props: {
     property: Object,
     landlord: Object
+  },
+  methods: {
+    reviewButtonText(property) {
+      const text = property.reviews.length ? "Read the Reviews" : "Leave a Review"
+      return text
+    }
   }
 }
 </script>

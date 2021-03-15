@@ -103,7 +103,14 @@ export default {
     ...mapActions(["createProperty", "createLandlord"])
   },
   computed: {
-    ...mapGetters(["allLandlords"])
+    ...mapGetters(["allLandlords"]),
+      selectLandlords() {
+      return [
+        {text: "--", value: "choose"},
+        ...this.allLandlords.map(landlord => ({text: landlord.name, value: landlord.id})),
+        {text: "Create New Landlord", value: "new"}
+        ]
+    }
   }
 }
 </script>

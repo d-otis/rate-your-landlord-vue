@@ -63,7 +63,7 @@
     </b-form-group>
 
       <b-button type="submit">Create Property</b-button>
-      <button type="button" @click="$emit('toggle-input')">Cancel</button>
+      <b-button @click="$emit('toggle-input')">Cancel</b-button>
     </b-form>
   </div>
 </template>

@@ -5,7 +5,7 @@
         <button v-show="!showInput" @click="toggleInput">Add Property</button>
         <h1> <span v-show="!allProperties.length">Loading: </span> Properties Index</h1>
         <LoadingSpinner v-show="!allProperties.length" />
-        <PropertyRowCard v-for="property in allProperties" :key="property.id" :property="property" />
+        <PropertyRowCard v-for="property in allProperties" :key="property.id" :property="property" :landlord="generateLandlord(property.landlordId)" />
     </b-col>
   </b-row>
 </template>

@@ -17,6 +17,23 @@
         >
         </b-form-input>
     </b-form-group>
+
+    <b-form-group
+      id="landlord-select-group"
+      label="Select Landlord:"
+      label-for="landlord"
+    >
+      <b-form-select
+        id="landlord"
+        v-model="landlordId"
+        :options="selectLandlords"
+        @change="checkForNewLandlord"
+        required
+      >
+
+      </b-form-select>
+    </b-form-group>
+
       <label for="landlord">Select Landlord:</label>
       <select name="" id="" v-model="landlordId" @change="checkForNewLandlord">
         <option value="choose">--</option>

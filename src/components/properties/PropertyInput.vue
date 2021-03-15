@@ -1,9 +1,20 @@
 <template>
   <div>
     <h1>Add a Property:</h1>
-    <form @submit="handleSubmit">
-      <label for="address">Address:</label>
-      <input type="text" name="" id="address" v-model="address">
+    <b-form @submit="handleSubmit">
+      <b-form-group
+      id="address-group"
+      label="Address:"
+      label-for="address"
+      >
+        <b-form-input
+        id="address"
+        v-model="address"
+        placeholder="Enter Address"
+        require
+        >
+        </b-form-input>
+    </b-form-group>
       <label for="landlord">Select Landlord:</label>
       <select name="" id="" v-model="landlordId" @change="checkForNewLandlord">
         <option value="choose">--</option>
@@ -19,7 +30,7 @@
       <input type="text" id="image" v-model="image_url">
       <input type="submit" value="Create Property">
       <button type="button" @click="$emit('toggle-input')">Cancel</button>
-    </form>
+    </b-form>
   </div>
 </template>
 

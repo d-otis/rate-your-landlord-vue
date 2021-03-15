@@ -2,7 +2,7 @@
   <div>
     <h1>Add a Property:</h1>
     <b-form @submit="handleSubmit">
-
+    <!-- ADDRESS -->
       <b-form-group
       id="address-group"
       label="Address:"
@@ -17,7 +17,7 @@
         >
         </b-form-input>
     </b-form-group>
-
+  <!-- LANDLORD SELECT -->
     <b-form-group
       id="landlord-select-group"
       label="Select Landlord:"
@@ -33,7 +33,7 @@
 
       </b-form-select>
     </b-form-group>
-
+  <!-- NEW LANDLORD INPUT -->
     <b-form-group
     v-show="showNewLandlordInput"
     id="new-landlord-group"
@@ -47,7 +47,7 @@
       >
       </b-form-input>
     </b-form-group>
-
+  <!-- IMAGE URL -->
     <b-form-group
     label="Image URL"
     id="image-group"
@@ -61,7 +61,7 @@
       >
       </b-form-input>
     </b-form-group>
-
+  <!-- SUBMIT/CANCEL -->
       <b-button type="submit">Create Property</b-button>
       <b-button @click="$emit('toggle-input')">Cancel</b-button>
     </b-form>

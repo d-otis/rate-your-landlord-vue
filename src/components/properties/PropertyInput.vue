@@ -2,12 +2,14 @@
   <div>
     <h1>Add a Property:</h1>
     <b-form @submit="handleSubmit">
+
       <b-form-group
       id="address-group"
       label="Address:"
       label-for="address"
       >
         <b-form-input
+        type="text"
         id="address"
         v-model="address"
         placeholder="Enter Address"

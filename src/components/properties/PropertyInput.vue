@@ -34,11 +34,20 @@
       </b-form-select>
     </b-form-group>
 
-      <div v-show="showNewLandlordInput">
-        <label for="landlord-name">Create a New Landlord</label>
-        <br>
-        <input type="text" name="" id="landlord-name" v-model="landlordName">
-      </div>
+    <b-form-group
+    v-show="showNewLandlordInput"
+    id="new-landlord-group"
+    label="Create a New Landlord"
+    label-for="new-landlord"
+    >
+      <b-form-input
+        type="text"
+        id="new-landlord"
+        v-model="landlordName"
+      >
+      </b-form-input>
+    </b-form-group>
+
       <label for="image">Image Url</label>
       <input type="text" id="image" v-model="image_url">
       <input type="submit" value="Create Property">

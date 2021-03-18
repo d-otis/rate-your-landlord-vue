@@ -1,5 +1,10 @@
 <template>
-  <div>
+  <b-container class="mt-5">
+    <b-row>
+      <b-col sm="12" class="text-center">
+        <h1>{{ property.address }}</h1>
+      </b-col>
+    </b-row>
     <h1>{{ property.address }} ({{ property.rating }})</h1>
     <h2>Landlord: <router-link :to="{ name: 'landlord', params: {landlordId: landlord.id} }" >{{ landlord.name }}</router-link> ({{ landlord.rating }})</h2>
     <img :src="property.image" alt="">
@@ -8,7 +13,7 @@
     <ReviewInput v-show="showReviewInput" :propertyId="propertyId" v-on:toggle-review-input="toggleReviewInput" />
     <h2>Reviews: <span v-show="!property.reviews.length">None</span> </h2>
     <Review v-for="review in reviews" :key="review.id" :review="review" />
-  </div>
+  </b-container>
 </template>
 
 <script>

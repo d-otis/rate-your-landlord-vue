@@ -9,7 +9,7 @@
     <b-row>
       <b-col sm="10" offset-sm="1">
         <LoadingSpinner v-show="!allProperties.length" />
-        <PropertyRowCard v-for="property in allProperties" :key="property.id" :property="property" :landlord="generateLandlord(property.landlordId)" />
+        <PropertyRowCard v-for="property in allProperties" :key="property.id" :property="property" :landlord="getLandlordById(property.landlordId)" />
       </b-col>
     </b-row>
   </div>
@@ -37,9 +37,6 @@ export default {
     ...mapGetters(["allProperties", "getLandlordById"])
   },
   methods: {
-    generateLandlord(id) {
-      return this.getLandlordById(id)
-    },
     toggleInput() {
       this.showInput = !this.showInput
     }

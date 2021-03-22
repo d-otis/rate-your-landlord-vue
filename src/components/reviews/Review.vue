@@ -23,7 +23,8 @@
 export default {
   name: "Review",
   props: {
-    review: Object
+    review: Object,
+    propertyShow: Boolean
   }
 }
 </script>

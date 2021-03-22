@@ -26,7 +26,7 @@
       <b-form-select
         id="landlord"
         v-model="landlordId"
-        :options="selectLandlords"
+        :options="selectLandlordsCollection"
         @change="checkForNewLandlord"
         required
       >
@@ -119,7 +119,7 @@ export default {
   },
   computed: {
     ...mapGetters(["allLandlords"]),
-      selectLandlords() {
+      selectLandlordsCollection() {
       return [
         {text: "--", value: "choose"},
         ...this.allLandlords.map(landlord => ({text: landlord.name, value: landlord.id})),

@@ -56,12 +56,14 @@
       :propertyId="propertyId" 
       v-on:toggle-review-input="toggleReviewInput" 
     />
-    <h2>Reviews: <span v-show="!property.reviews.length">None</span> </h2>
-    <Review 
-      v-for="review in reviews" 
-      :key="review.id" 
-      :review="review" 
-    />
+    <b-container class="mt-5">
+      <Review 
+        v-for="review in reviews" 
+        :key="review.id" 
+        :review="review"
+      />
+    </b-container>
+
   </div>
 </template>
 

@@ -1,5 +1,6 @@
 <template>
-  <b-container class="mt-5">
+  <div>
+    <b-container class="mt-5">
     <b-row>
       <b-col sm="12" class="text-center">
         <h1>{{ property.address }}</h1>
@@ -49,8 +50,7 @@
         </b-container>
       </b-col>
     </b-row>
-
-    
+  </b-container>
     <ReviewInput 
       v-show="showReviewInput" 
       :propertyId="propertyId" 
@@ -62,7 +62,7 @@
       :key="review.id" 
       :review="review" 
     />
-  </b-container>
+  </div>
 </template>
 
 <script>

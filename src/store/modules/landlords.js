@@ -1,5 +1,8 @@
+// /store/modules/landlords.js
 import axios from 'axios'
-import { normalizeLandlord, updateResourceWithReview } from '../../util'
+import { normalizeLandlord, updateResourceWithReview, BASEURL } from '../../util'
+
+const landlordsURL = `${BASEURL}/landlords`
 
 const state = {
   landlords: []
@@ -12,24 +15,24 @@ const getters = {
 
 const actions = {
   async fetchLandlords({ commit }) {
-    const response = await axios.get("http://localhost:3000/api/v1/landlords/")
+    const response = await axios.get(landlordsURL)
 
     commit("setLandlords", response.data.data)
   },
   async createLandlord({ commit }, landlord) {
-    const response = await axios.post("http://localhost:3000/api/v1/landlords/", { landlord })
+    const response = await axios.post(landlordsURL, { landlord })
 
     commit("newLandlord", response.data.data)
 
     if (response.data.included.length) { commit('addProperty', response.data.included[0]) }
   },
   async updateLandlord({ commit }, landlord) {
-    const response = await axios.patch(`http://localhost:3000/api/v1/landlords/${landlord.id}`, { name: landlord.name })
+    const response = await axios.patch(`${landlordsURL}/${landlord.id}`, { name: landlord.name })
 
     commit("updateLandlord", response.data.data)
   },
   async deleteLandlord({ commit }, id) {
-    const response = await axios.delete(`http://localhost:3000/api/v1/landlords/${id}`)
+    const response = await axios.delete(`${landlordsURL}/${id}`)
 
     // eslint-disable-next-line
     // debugger

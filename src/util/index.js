@@ -63,3 +63,5 @@ export function updateResourceWithReview(state, review) {
     ...state[collectionKey].slice(index + 1)
   ]
 }
+
+export const BASEURL = "http://localhost:3000/api/v1"

@@ -54,9 +54,6 @@ export default {
     },
     ...mapActions(['deleteLandlord']),
     handleDelete(e) {
-      // eslint-disable-next-line
-      // debugger
-      // console.log(e)
       this.deleteLandlord(e.target.id)
     }
   },

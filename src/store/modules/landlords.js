@@ -34,8 +34,6 @@ const actions = {
   async deleteLandlord({ commit }, id) {
     const response = await axios.delete(`${landlordsURL}/${id}`)
 
-    // eslint-disable-next-line
-    // debugger
     commit("deleteLandlord", response.data.data.id)
   }
 }
